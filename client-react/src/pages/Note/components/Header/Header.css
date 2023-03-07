@@ -29,51 +29,6 @@
     margin: 0 10px 0 0; 
 }
 
-.header .colorSelector {
-    background-color: #3b3b3b;
-    border: none;
-    height: 35px;
-    border-radius: 8px;
-    box-sizing: border-box;
-    padding: 5px;
-    display: flex;
-    margin-left: 10px;
-    cursor: pointer;
-}
-
-.header .colorSelector .color {
-    height: 25px;
-    width: 25px;
-    border-radius: 6px;
-    margin-right: 10px;
-}
-
-.header .colorSelectorModal {
-    background-color: #3b3b3b;
-    position: absolute;
-    left: 24px;
-    top: 10vh;
-    box-sizing: border-box;
-    padding: 10px;
-    border-radius: 8px;
-    width: 25%;
-}
-
-.header .colorSelectorModal .colorOption {
-    border: none;
-    height: 35px;
-    width: 100%;
-    border-radius: 8px;
-    margin-bottom: 6px;
-    cursor: pointer;
-}
-
-@media (max-width: 600px) {
-    .header .colorSelectorModal {
-        width: 50%;
-    }
-}
-
 .header .saveButton {
     background-color: #353535;
     border: none;
