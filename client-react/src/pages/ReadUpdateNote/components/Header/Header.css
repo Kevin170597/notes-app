@@ -29,14 +29,14 @@
     margin: 0 10px 0 0; 
 }
 
-.header .saveButton {
+.header .actionButton {
     background-color: #353535;
     border: none;
     height: 35px;
     aspect-ratio: 1;
     border-radius: 8px;
     color: #fff;
-    margin: 0 0 0 auto;
+    margin-left: 10px;
     display: flex;
     justify-content: center;
     align-items: center;

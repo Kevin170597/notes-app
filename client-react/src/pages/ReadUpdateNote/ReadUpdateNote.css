@@ -55,3 +55,26 @@
         width: 100%;
     }
 }
+
+.title {
+    color: #fff;
+}
+
+.cancelButton {
+    background-color: #535353;
+    color: #fff;
+    border: none;
+    padding: 8px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.deleteButton {
+    background-color: #5f367a;
+    color: #fff;
+    border: none;
+    padding: 8px 10px;
+    border-radius: 6px;
+    cursor: pointer;
+}
