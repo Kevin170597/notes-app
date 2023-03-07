@@ -27,20 +27,22 @@ export const ReadUpdateNote = () => {
 
     return (
         <div className="addNoteContainer">
-            <Header saving={loading} update={handlerUpdateNote} color={note?.color} note={note} setNote={setNote} />
+            <Header saving={loading} save={handlerUpdateNote} color={note?.color} note={note} setNote={setNote} />
             {note &&
                 <div className="note">
                     <input
                         type="text"
                         placeholder="Título"
                         value={note.title}
-                        onChange={(e) => setNote({ ...note, title: e.target.value })} />
+                        onChange={(e) => setNote({ ...note, title: e.target.value })} 
+                    />
                     <textarea
                         name=""
                         cols={30}
                         rows={10}
                         value={note.content}
-                        onChange={(e) => setNote({ ...note, content: e.target.value })} />
+                        onChange={(e) => setNote({ ...note, content: e.target.value })} 
+                    />
                 </div>
             }
         </div>
