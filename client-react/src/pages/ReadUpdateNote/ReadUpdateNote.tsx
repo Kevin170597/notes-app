@@ -1,10 +1,10 @@
 import { useParams } from "react-router-dom";
-import './Note.css';
+import './ReadUpdateNote.css';
 import { useState, useEffect } from "react";
 import { getNote, updateNote } from "../../services/notes";
 import { Header } from "./components";
 
-export const Note = () => {
+export const ReadUpdateNote = () => {
     const { id }:any = useParams();
 
     const [note, setNote] = useState<any>();
