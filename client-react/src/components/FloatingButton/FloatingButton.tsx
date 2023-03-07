@@ -1,5 +1,5 @@
 import CSS from 'csstype';
-import { LoadingIcon } from '../../assets/icons/Loading';
+import { LoadingIcon } from '../../assets/icons';
 
 export const FloatingButton = ({ onClick, loading, icon }: any) => {
 

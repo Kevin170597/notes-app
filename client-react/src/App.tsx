@@ -1,8 +1,7 @@
-import { Routes, Route } from 'react-router-dom';
 import { useEffect } from 'react';
+import { Routes, Route } from 'react-router-dom';
 import { NotesList, Login, Register, ReadUpdateNote, CreateNote } from "./pages";
-import { PublicLayout } from './router/PublicLayout';
-import { PrivateLayout } from './router/PrivateLayout';
+import { PrivateLayout, PublicLayout } from './router';
 import { useAuthStore } from './store/useAuthStore';
 
 export const App = () => {
