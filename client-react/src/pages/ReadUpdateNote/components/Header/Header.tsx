@@ -5,7 +5,7 @@ import { LoadingIcon } from '../../../../assets/icons/Loading';
 import { DoneIcon } from '../../../../assets/icons/Done';
 import { ColorSelector } from '../ColorSelector/ColorSelector';
 
-export const Header = ({ saving, update, color, note, setNote }: any) => {
+export const Header = ({ saving, save, color, note, setNote }: any) => {
 
     return (
         <header className='header'>
@@ -16,7 +16,7 @@ export const Header = ({ saving, update, color, note, setNote }: any) => {
             </button>
             <h2 className='title'>Notas</h2>
             <ColorSelector color={color} setNote={setNote} note={note} />
-            <button className='saveButton' onClick={update}>
+            <button className='saveButton' onClick={save}>
                 {saving ? <LoadingIcon /> : <DoneIcon />}
             </button>
         </header>

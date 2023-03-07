@@ -3,8 +3,10 @@ import './NotesList.css';
 import { FloatingButton } from '../../components';
 import { AddIcon } from '../../assets/icons/Add';
 import { Header, NoteCard } from './components';
+import { useNavigate } from 'react-router-dom';
 
 export const NotesList = () => {
+    const navigate = useNavigate();
     const [notes, setNotes] = useState<any>();
 
     const getNotes = async () => {
@@ -32,7 +34,7 @@ export const NotesList = () => {
                     <p>no hay notas</p>
                 }
             </div>
-            <FloatingButton icon={<AddIcon />} />
+            <FloatingButton icon={<AddIcon />} onClick={() => navigate('/new')} />
         </div>
     )
 };
