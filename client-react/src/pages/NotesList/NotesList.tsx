@@ -4,6 +4,8 @@ import { useNavigate } from 'react-router-dom';
 import { FloatingButton } from '../../components';
 import { AddIcon } from '../../assets/icons';
 import { Header, NoteCard } from './components';
+import { LoadingIcon } from '../../assets/icons';
+import Empty from '../../assets/empty.png'
 
 export const NotesList = () => {
     const navigate = useNavigate();
@@ -29,9 +31,12 @@ export const NotesList = () => {
                         <NoteCard key={note._id} note={note} />
                     )
                 }
-                {!notes && <p>cargando...</p> }
+                {!notes && <LoadingIcon /> }
                 {notes && notes.length === 0 &&
-                    <p>no hay notas</p>
+                    <div className='empty'>
+                        <img src={Empty} alt="empty list" />
+                        <p>Crea tus notas</p>
+                    </div>
                 }
             </div>
             <FloatingButton icon={<AddIcon />} onClick={() => navigate('/new')} />

@@ -5,13 +5,15 @@ import { getNote, updateNote, deleteNote } from "../../services/notes";
 import { Header } from "./components";
 import { Modal } from "../../components";
 import { useNavigate } from "react-router-dom";
+import { LoadingIcon } from "../../assets/icons";
 
 export const ReadUpdateNote = () => {
     const navigate = useNavigate();
     const { id }: any = useParams();
 
     const [note, setNote] = useState<any>();
-    const [loading, setLoading] = useState<boolean>(false);
+    const [updateLoading, setUpdateLoading] = useState<boolean>(false);
+    const [deleteLoading, setDeleteLoading] = useState<boolean>(false);
     const [modal, setModal] = useState<boolean>(false);
 
     const handlerGetNote = async () => {
@@ -20,14 +22,16 @@ export const ReadUpdateNote = () => {
     };
 
     const handlerUpdateNote = async () => {
-        setLoading(true);
+        setUpdateLoading(true);
         await updateNote(id, note);
-        setLoading(false);
+        setUpdateLoading(false);
     };
 
     const handleDelete = async () => {
+        setDeleteLoading(true);
         await deleteNote(id);
         setModal(false);
+        setDeleteLoading(false);
         navigate('/');
     };
 
@@ -40,7 +44,7 @@ export const ReadUpdateNote = () => {
             <Header
                 deleteButton
                 setModal={setModal}
-                saving={loading}
+                saving={updateLoading}
                 save={handlerUpdateNote}
                 color={note?.color}
                 note={note}
@@ -66,7 +70,10 @@ export const ReadUpdateNote = () => {
             {modal &&
                 <Modal content={
                     <div>
-                        <p className="title">¿Eliminar?</p>
+                        <div className="modalHeader">
+                            <p className="title">¿Eliminar?</p>
+                            {deleteLoading && <LoadingIcon />}
+                        </div>
                         <button
                             className="cancelButton"
                             onClick={() => setModal(false)}>

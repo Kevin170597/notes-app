@@ -2,8 +2,11 @@ import { useState } from 'react';
 import './CreateNote.css';
 import { Header } from '../ReadUpdateNote/components';
 import { createNote } from '../../services';
+import { useNavigate } from 'react-router-dom';
 
 export const CreateNote = () => {
+    const navigate = useNavigate();
+
     const [loading, setLoading] = useState<boolean>(false);
     const [newNote, setNewNote] = useState<any>({
         title: '',
@@ -16,11 +19,12 @@ export const CreateNote = () => {
         setLoading(true);
         await createNote(newNote);
         setLoading(false);
+        navigate('/');
     };
 
     return (
         <div className='createNoteContainer'>
-            <Header loading={loading} save={handleCreateNote} color={newNote.color} note={newNote} setNote={setNewNote} />
+            <Header saving={loading} save={handleCreateNote} color={newNote.color} note={newNote} setNote={setNewNote} />
             <div className='newNote'>
                 <input
                     type="text"
