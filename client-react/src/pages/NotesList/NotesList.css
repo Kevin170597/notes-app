@@ -1,0 +1,15 @@
+.notesContainer {
+    height: 100vh;
+    background-color: #252525;
+}
+
+.cardList {
+    height: 90vh;
+    padding-top: 10px;
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-y: auto;
+    padding: 0 10px;
+}

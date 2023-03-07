@@ -1,0 +1,33 @@
+.noteCard {
+    background-color: #91f48f;
+    width: 40%;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 10px;
+    cursor: pointer;
+    box-sizing: border-box;
+}
+
+.noteCard:hover {
+    width: 41%;
+}
+
+.noteCard b {
+    color: #414141;
+}
+
+.noteCard p {
+    color: #414141;
+    margin: 5px 0;
+}
+
+@media (max-width: 600px) {
+    .noteCard {
+        width: 100%;
+        padding: 20px;
+        margin-bottom: 16px;
+    }
+    .noteCard:hover {
+        width: 101%;
+    }
+}

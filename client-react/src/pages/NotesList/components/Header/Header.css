@@ -1,0 +1,22 @@
+.header {
+    display: flex;
+    align-items: center;
+    height: 10vh;
+    box-sizing: border-box;
+    padding: 10px 30px;
+}
+
+.header h2 {
+    color: #fff;
+    margin: 0;
+    margin-right: auto;
+}
+
+.header .profileButton {
+    background-color: #353535;
+    border: none;
+    height: 40px;
+    aspect-ratio: 1;
+    border-radius: 100%;
+    color: #fff;
+}
