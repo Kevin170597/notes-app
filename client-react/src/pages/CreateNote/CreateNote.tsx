@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import './CreateNote.css';
 import { Header } from '../ReadUpdateNote/components';
+import { createNote } from '../../services';
 
 export const CreateNote = () => {
     const [loading, setLoading] = useState<boolean>(false);
@@ -12,21 +13,15 @@ export const CreateNote = () => {
         owner: '2'
     });
 
-    const createNote = async () => {
+    const handleCreateNote = async () => {
         setLoading(true);
-        const req = await fetch('https://notes-app-production-fa30.up.railway.app/notes', {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(newNote)
-        });
-        const res = await req.json();
-        //console.log(res);
+        await createNote(newNote);
         setLoading(false);
     };
 
     return (
         <div className='createNoteContainer'>
-            <Header loading={loading} save={createNote} color={newNote.color} note={newNote} setNote={setNewNote} />
+            <Header loading={loading} save={handleCreateNote} color={newNote.color} note={newNote} setNote={setNewNote} />
             <div className='newNote'>
                 <input
                     type="text"
