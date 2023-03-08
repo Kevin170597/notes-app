@@ -9,7 +9,7 @@ export const login = async (email: string, password: string) => {
             body: JSON.stringify({ email, password })
         });
         const res = await user.json();
-        //console.log(res);
+        console.log(res);
         return res;
     } catch (error) {
         console.log(error);

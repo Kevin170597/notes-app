@@ -3,8 +3,11 @@ import './CreateNote.css';
 import { Header } from '../ReadUpdateNote/components';
 import { createNote } from '../../services';
 import { useNavigate } from 'react-router-dom';
+import { useLoggedUserStore } from '../../store/useLoggedUserStore';
 
 export const CreateNote = () => {
+    const { _id } = useLoggedUserStore((state: any) => state.loggedUser);
+
     const navigate = useNavigate();
 
     const [loading, setLoading] = useState<boolean>(false);
@@ -12,7 +15,7 @@ export const CreateNote = () => {
         title: '',
         content: '',
         color: '#b69cff',
-        owner: '2'
+        owner: _id
     });
 
     const handleCreateNote = async () => {
