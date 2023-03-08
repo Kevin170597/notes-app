@@ -1,6 +1,6 @@
 import { useEffect } from 'react';
 import { Routes, Route } from 'react-router-dom';
-import { NotesList, Login, Register, ReadUpdateNote, CreateNote } from "./pages";
+import { NotesList, Login, Register, ReadUpdateNote, CreateNote } from './pages';
 import { PrivateLayout, PublicLayout } from './router';
 import { useAuthStore } from './store/useAuthStore';
 import { useLoggedUserStore } from './store/useLoggedUserStore';
