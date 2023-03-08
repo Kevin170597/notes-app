@@ -1,12 +1,17 @@
 import { useState } from 'react';
-import './CreateNote.css';
-import { Header } from '../ReadUpdateNote/components';
-import { createNote } from '../../services';
 import { useNavigate } from 'react-router-dom';
+import './CreateNote.css';
+// Page components
+import { Header } from '../ReadUpdateNote/components';
+// Services
+import { createNote } from '../../services';
+// Global Stores
 import { useLoggedUserStore } from '../../store/useLoggedUserStore';
+// Typescript interfaces
+import { LoggedUserStore } from '../../models';
 
 export const CreateNote = () => {
-    const { _id } = useLoggedUserStore((state: any) => state.loggedUser);
+    const { _id } = useLoggedUserStore((state: LoggedUserStore) => state.loggedUser);
 
     const navigate = useNavigate();
 

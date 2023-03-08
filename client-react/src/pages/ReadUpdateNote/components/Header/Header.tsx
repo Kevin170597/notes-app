@@ -1,6 +1,8 @@
 import { NavLink } from 'react-router-dom';
 import './Header.css';
+// Page Components
 import { ColorSelector } from '../ColorSelector/ColorSelector';
+// Assets
 import { ArrowBackIcon, LoadingIcon, DeleteIcon, SaveIcon } from '../../../../assets/icons';
 
 export const Header = ({ saving, save, color, note, setNote, deleteButton, setModal }: any) => {

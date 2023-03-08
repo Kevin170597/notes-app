@@ -1,17 +1,24 @@
 import { useEffect, useState } from 'react';
 import './NotesList.css';
 import { useNavigate } from 'react-router-dom';
+// Global Components
 import { FloatingButton, ImageMessage } from '../../components';
-import { AddIcon } from '../../assets/icons';
+// Page Components
 import { Header, NoteCard } from './components';
+// Services
+import { getNotes } from '../../services';
+// Global Stores
+import { useLoggedUserStore } from '../../store/useLoggedUserStore';
+// Typescript interfaces
+import { Note, LoggedUserStore } from '../../models';
+// Assets
 import { LoadingIcon } from '../../assets/icons';
+import { AddIcon } from '../../assets/icons';
 import Empty from '../../assets/empty.png';
 import Error from '../../assets/error.png';
-import { getNotes } from '../../services';
-import { useLoggedUserStore } from '../../store/useLoggedUserStore';
 
 export const NotesList = () => {
-    const { _id } = useLoggedUserStore((state: any) => state.loggedUser);
+    const { _id } = useLoggedUserStore((state: LoggedUserStore) => state.loggedUser);
 
     const navigate = useNavigate();
     const [notes, setNotes] = useState<any>();
@@ -39,7 +46,7 @@ export const NotesList = () => {
             <Header />
             <div className='cardList'>
                 {notes &&
-                    notes.map((note: any) =>
+                    notes.map((note: Note) =>
                         <NoteCard key={note._id} note={note} />
                     )
                 }

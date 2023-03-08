@@ -1,11 +1,14 @@
 import { useState } from 'react';
 import './Header.css';
+// Global Stores
 import { useAuthStore } from '../../../../store/useAuthStore';
 import { useLoggedUserStore } from '../../../../store/useLoggedUserStore';
+// Typescript interfaces
+import { AuthStore, LoggedUserStore } from '../../../../models';
 
 export const Header = () => {
-    const logout = useAuthStore((state: any) => state.logout);
-    const loggedUser = useLoggedUserStore((state: any) => state.loggedUser);
+    const logout = useAuthStore((state: AuthStore) => state.logout);
+    const loggedUser = useLoggedUserStore((state: LoggedUserStore) => state.loggedUser);
 
     const [userModal, setUserModal] = useState<boolean>(false);
 

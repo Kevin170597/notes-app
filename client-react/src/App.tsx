@@ -4,10 +4,11 @@ import { NotesList, Login, Register, ReadUpdateNote, CreateNote } from './pages'
 import { PrivateLayout, PublicLayout } from './router';
 import { useAuthStore } from './store/useAuthStore';
 import { useLoggedUserStore } from './store/useLoggedUserStore';
+import { AuthStore, LoggedUserStore } from './models';
 
 export const App = () => {
-  const getAuth = useAuthStore((state: any) => state.getAuth);
-  const getLoggedUser = useLoggedUserStore((state: any) => state.getLoggedUser);
+  const getAuth = useAuthStore((state: AuthStore) => state.getAuth);
+  const getLoggedUser = useLoggedUserStore((state: LoggedUserStore) => state.getLoggedUser);
 
   useEffect(() => {
     getAuth();

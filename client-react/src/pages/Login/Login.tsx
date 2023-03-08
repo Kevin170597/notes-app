@@ -1,21 +1,27 @@
 import { useState } from 'react';
 import './Login.css';
 import { NavLink } from 'react-router-dom';
+// Hooks
+import { useForm } from 'react-hook-form';
+//services
+import { login } from '../../services';
+// Global Stores
 import { useAuthStore } from '../../store/useAuthStore';
 import { useLoggedUserStore } from '../../store/useLoggedUserStore';
-import { useForm } from 'react-hook-form';
-import logo from '../../assets/icon.png';
-import { login } from '../../services';
+// Typescript interfaces
+import { AuthStore, LoggedUserStore } from '../../models';
+// Assets
 import { LoadingIcon } from '../../assets/icons';
+import logo from '../../assets/icon.png';
 
 export const Login = () => {
     const [loading, setLoading] = useState<boolean>(false);
     const [error, setError] = useState<string>('');
 
-    const setAuth = useAuthStore((state: any) => state.setAuth);
-    const setLoggedUser = useLoggedUserStore((state: any) => state.setLoggedUser);
+    const setAuth = useAuthStore((state: AuthStore) => state.setAuth);
+    const setLoggedUser = useLoggedUserStore((state: LoggedUserStore) => state.setLoggedUser);
 
-    const handleLogin = async (data: any) => {
+    const handleLogin = async (data: { email: string, password: string }) => {
         try {
             setLoading(true);
             const response = await login(data.email, data.password);
