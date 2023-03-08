@@ -19,11 +19,12 @@ export const Register = () => {
         return navigate('/login');
     };
 
-    const { register, handleSubmit, formState: { errors } } = useForm({
+    const { register, watch, handleSubmit, formState: { errors } } = useForm({
         defaultValues: {
             name: '',
             email: '',
-            password: ''
+            password: '',
+            confirm_password: ''
         }
     });
 
@@ -55,6 +56,22 @@ export const Register = () => {
                     name="password"
                     placeholder="Contraseña"
                     style={errors.password ? { border: 'solid 1px #ec6363' } : { border: 'solid 1px #353535' }}
+                />
+                <input
+                    {...register('confirm_password',
+                        { 
+                            required: true ,
+                            validate: (val: string) => {
+                                if (watch('password') != val) {
+                                    return 'err'
+                                }
+                            }
+                        })}
+                    className='inputregister'
+                    type="password"
+                    name="confirm_password"
+                    placeholder="Repetir contraseña"
+                    style={errors.confirm_password ? { border: 'solid 1px #ec6363' } : { border: 'solid 1px #353535' }}
                 />
                 <button className='registerButton' type="submit">
                     {loading ? <LoadingIcon /> : 'Registrarte'}
