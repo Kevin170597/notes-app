@@ -14,10 +14,8 @@ export const Login = () => {
 
     const handleLogin = async (data: any) => {
         setLoading(true);
-        console.log(data);
         const response = await login(data.email, data.password);
-        //setAuth(response.token);
-        setAuth('asd');
+        setAuth(response.token);
         setLoading(false);
     };
 

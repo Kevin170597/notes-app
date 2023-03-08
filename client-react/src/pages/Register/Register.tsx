@@ -13,14 +13,15 @@ export const Register = () => {
 
     const handleRegister = async (data: any) => {
         setLoading(true);
-        console.log(data);
-        await registerUser(data.email, data.password);
+        //console.log(data);
+        await registerUser(data.name, data.email, data.password);
         setLoading(false);
         return navigate('/login');
     };
 
     const { register, handleSubmit, formState: { errors } } = useForm({
         defaultValues: {
+            name: '',
             email: '',
             password: ''
         }
@@ -31,6 +32,14 @@ export const Register = () => {
             <form onSubmit={handleSubmit(handleRegister)} className='registerForm'>
                 <img className='logo' src={logo} alt="logo" />
                 <h2 className='registerFormTitle'>Registrarte</h2>
+                <input
+                    {...register('name', { required: true })}
+                    className='inputregister'
+                    type="text"
+                    name="name"
+                    placeholder="Nombre"
+                    style={errors.name ? { border: 'solid 1px #ec6363' } : { border: 'solid 1px #353535' }}
+                />
                 <input
                     {...register('email', { required: true })}
                     className='inputregister'
