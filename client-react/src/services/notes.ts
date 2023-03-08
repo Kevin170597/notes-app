@@ -1,5 +1,12 @@
 const API = 'https://notes-app-production-fa30.up.railway.app';
 
+export const getNotes = async (userid: string) => {
+    const req = await fetch(`${API}/notes/user/${userid}`);
+    const res = await req.json();
+    //console.log(res);
+    return res;
+};
+
 export const getNote = async (id: string) => {
     const req = await fetch(`${API}/notes/${id}`);
     const res = await req.json();

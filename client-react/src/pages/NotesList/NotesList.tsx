@@ -5,21 +5,23 @@ import { FloatingButton } from '../../components';
 import { AddIcon } from '../../assets/icons';
 import { Header, NoteCard } from './components';
 import { LoadingIcon } from '../../assets/icons';
-import Empty from '../../assets/empty.png'
+import Empty from '../../assets/empty.png';
+import { getNotes } from '../../services';
+import { useLoggedUserStore } from '../../store/useLoggedUserStore';
 
 export const NotesList = () => {
+    const { _id } = useLoggedUserStore((state: any) => state.loggedUser);
+
     const navigate = useNavigate();
     const [notes, setNotes] = useState<any>();
 
-    const getNotes = async () => {
-        const req = await fetch('https://notes-app-production-fa30.up.railway.app/notes');
-        const res = await req.json();
-        console.log(res);
+    const handleGetNotes = async () => {
+        const res = await getNotes(_id);
         setNotes(res);
     };
 
     useEffect(() => {
-        getNotes();
+        handleGetNotes();
     }, []);
 
     return (
