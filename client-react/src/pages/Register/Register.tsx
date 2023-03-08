@@ -13,16 +13,18 @@ export const Register = () => {
 
     const handleRegister = async (data: any) => {
         setLoading(true);
-        console.log(data);
-        await registerUser(data.email, data.password);
+        //console.log(data);
+        await registerUser(data.name, data.email, data.password);
         setLoading(false);
         return navigate('/login');
     };
 
-    const { register, handleSubmit, formState: { errors } } = useForm({
+    const { register, watch, handleSubmit, formState: { errors } } = useForm({
         defaultValues: {
+            name: '',
             email: '',
-            password: ''
+            password: '',
+            confirm_password: ''
         }
     });
 
@@ -31,6 +33,14 @@ export const Register = () => {
             <form onSubmit={handleSubmit(handleRegister)} className='registerForm'>
                 <img className='logo' src={logo} alt="logo" />
                 <h2 className='registerFormTitle'>Registrarte</h2>
+                <input
+                    {...register('name', { required: true })}
+                    className='inputregister'
+                    type="text"
+                    name="name"
+                    placeholder="Nombre"
+                    style={errors.name ? { border: 'solid 1px #ec6363' } : { border: 'solid 1px #353535' }}
+                />
                 <input
                     {...register('email', { required: true })}
                     className='inputregister'
@@ -46,6 +56,22 @@ export const Register = () => {
                     name="password"
                     placeholder="Contraseña"
                     style={errors.password ? { border: 'solid 1px #ec6363' } : { border: 'solid 1px #353535' }}
+                />
+                <input
+                    {...register('confirm_password',
+                        { 
+                            required: true ,
+                            validate: (val: string) => {
+                                if (watch('password') != val) {
+                                    return 'err'
+                                }
+                            }
+                        })}
+                    className='inputregister'
+                    type="password"
+                    name="confirm_password"
+                    placeholder="Repetir contraseña"
+                    style={errors.confirm_password ? { border: 'solid 1px #ec6363' } : { border: 'solid 1px #353535' }}
                 />
                 <button className='registerButton' type="submit">
                     {loading ? <LoadingIcon /> : 'Registrarte'}
