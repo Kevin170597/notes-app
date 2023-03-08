@@ -1,5 +1,5 @@
 .createNoteContainer {
-    background-color: #252525;
+    background-color: var(--background);
     height: 100vh;
 }
 
@@ -16,7 +16,7 @@
 .createNoteContainer .newNote input {
     width: 80%;
     background: none;
-    color: #bdbdbd;
+    color: var(--font2);
     height: 50px;
     border: none;
     font-size: 24px;
@@ -27,13 +27,13 @@
 
 .createNoteContainer .newNote input:focus {
     outline: none;
-    background-color: #303030;
+    background-color: var(--background2);
 }
 
 .createNoteContainer .newNote textarea {
     width: 80%;
     background: none;
-    color: #bdbdbd;
+    color: var(--font2);
     height: calc(100% - 60px);
     border: none;
     box-sizing: border-box;
@@ -44,7 +44,7 @@
 
 .createNoteContainer .newNote textarea:focus {
     outline: none;
-    background-color: #303030;
+    background-color: var(--background2);
 }
 
 @media (max-width: 600px) {

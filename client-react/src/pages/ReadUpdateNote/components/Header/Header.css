@@ -7,7 +7,7 @@
 }
 
 .backButton {
-    background-color: #3b3b3b;
+    background-color: var(--background2);
     border: none;
     border-radius: 8px;
     height: 35px;
@@ -25,17 +25,17 @@
 }
 
 .header .title {
-    color: #fff;
+    color: var(--font);
     margin: 0 10px 0 0; 
 }
 
 .header .actionButton {
-    background-color: #353535;
+    background-color: var(--background2);
     border: none;
     height: 35px;
     aspect-ratio: 1;
     border-radius: 8px;
-    color: #fff;
+    color: var(--font);
     margin-left: 10px;
     display: flex;
     justify-content: center;
@@ -44,10 +44,10 @@
 }
 
 .header .profileButton {
-    background-color: #353535;
+    background-color: var(--background2);
     border: none;
     height: 40px;
     aspect-ratio: 1;
     border-radius: 100%;
-    color: #fff;
+    color: var(--font);
 }

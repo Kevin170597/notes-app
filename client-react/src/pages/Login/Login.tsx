@@ -53,7 +53,7 @@ export const Login = () => {
                     type='text'
                     name='email'
                     placeholder='Email'
-                    style={errors.email ? { border: 'solid 1px #ec6363' } : { border: 'solid 1px #353535' }}
+                    style={errors.email ? { border: 'solid 1px #ec6363' } : { border: 'solid 1px var(--background2)' }}
                 />
                 <input
                     {...register('password', { required: true })}
@@ -61,7 +61,7 @@ export const Login = () => {
                     type='password'
                     name='password'
                     placeholder='Contraseña'
-                    style={errors.password ? { border: 'solid 1px #ec6363' } : { border: 'solid 1px #353535' }}
+                    style={errors.password ? { border: 'solid 1px #ec6363' } : { border: 'solid 1px var(--background2)' }}
                 />
                 <button className='loginButton' type='submit'>
                     {loading ? <LoadingIcon /> : 'Iniciar sesión'}

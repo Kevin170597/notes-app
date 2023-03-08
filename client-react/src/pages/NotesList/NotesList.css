@@ -1,6 +1,6 @@
 .notesContainer {
     height: 100vh;
-    background-color: #252525;
+    background-color: var(--background);
 }
 
 .cardList {
