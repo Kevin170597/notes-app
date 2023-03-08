@@ -2,6 +2,7 @@ import { useState } from 'react';
 import './Login.css';
 import { NavLink } from 'react-router-dom';
 import { useAuthStore } from '../../store/useAuthStore';
+import { useLoggedUserStore } from '../../store/useLoggedUserStore';
 import { useForm } from 'react-hook-form';
 import logo from '../../assets/icon.png';
 import { login } from '../../services';
@@ -11,10 +12,12 @@ export const Login = () => {
     const [loading, setLoading] = useState<boolean>(false);
 
     const setAuth = useAuthStore((state: any) => state.setAuth);
+    const setLoggedUser = useLoggedUserStore((state: any) => state.setLoggedUser);
 
     const handleLogin = async (data: any) => {
         setLoading(true);
         const response = await login(data.email, data.password);
+        setLoggedUser(response.user);
         setAuth(response.token);
         setLoading(false);
     };

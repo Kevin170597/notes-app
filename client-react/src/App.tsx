@@ -3,12 +3,15 @@ import { Routes, Route } from 'react-router-dom';
 import { NotesList, Login, Register, ReadUpdateNote, CreateNote } from "./pages";
 import { PrivateLayout, PublicLayout } from './router';
 import { useAuthStore } from './store/useAuthStore';
+import { useLoggedUserStore } from './store/useLoggedUserStore';
 
 export const App = () => {
   const getAuth = useAuthStore((state: any) => state.getAuth);
+  const getLoggedUser = useLoggedUserStore((state: any) => state.getLoggedUser);
 
   useEffect(() => {
     getAuth();
+    getLoggedUser();
   }, []);
 
   return (

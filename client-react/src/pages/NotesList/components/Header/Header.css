@@ -19,4 +19,30 @@
     aspect-ratio: 1;
     border-radius: 100%;
     color: #fff;
+    cursor: pointer;
+}
+
+.header .userModal {
+    background-color: #353535;
+    position: absolute;
+    right: 16px;
+    top: 10vh;
+    padding: 10px 16px;
+    border-radius: 8px;
+}
+
+.header .userModal p {
+    margin: 8px 0 16px;
+    color: #fff;
+}
+
+.header .userModal button {
+    margin:  0 0 8px;
+    width: 100%;
+    background: none;
+    border: solid 1px #252525;
+    color: #fff;
+    padding: 10px 0;
+    border-radius: 8px;
+    cursor: pointer;
 }
