@@ -1,12 +1,33 @@
-export const register = async (name: string, password: string) => {
+const API = 'https://notes-app-production-fa30.up.railway.app';
+
+export const login = async (email: string, password: string) => {
     try {
-        const user = await fetch(`${process.env.REACT_APP_API}/users/register`,
+        const user = await fetch(`${API}/users/login`,
         {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name, password })
+            body: JSON.stringify({ email, password })
         });
         const res = await user.json();
         //console.log(res);
-    } catch (error) { console.log(error); }
+        return res;
+    } catch (error) {
+        console.log(error);
+    }
+};
+
+export const registerUser = async (email: string, password: string) => {
+    try {
+        const user = await fetch(`${API}/users/register`,
+        {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ email, password })
+        });
+        const res = await user.json();
+        //console.log(res);
+        return res;
+    } catch (error) { 
+        console.log(error); 
+    }
 };

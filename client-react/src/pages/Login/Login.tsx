@@ -2,37 +2,56 @@ import { useState } from 'react';
 import './Login.css';
 import { NavLink } from 'react-router-dom';
 import { useAuthStore } from '../../store/useAuthStore';
+import { useForm } from 'react-hook-form';
+import logo from '../../assets/icon.png';
+import { login } from '../../services';
+import { LoadingIcon } from '../../assets/icons';
 
 export const Login = () => {
+    const [loading, setLoading] = useState<boolean>(false);
+
     const setAuth = useAuthStore((state: any) => state.setAuth);
 
-    const [name, setName] = useState<string>('');
-    const [password, setPassword] = useState<string>('');
-
-    const handleLogin = (e: any) => {
-        e.preventDefault();
-        setAuth('123456');
+    const handleLogin = async (data: any) => {
+        setLoading(true);
+        console.log(data);
+        const response = await login(data.email, data.password);
+        //setAuth(response.token);
+        setAuth('asd');
+        setLoading(false);
     };
+
+    const { register, handleSubmit, formState: { errors } } = useForm({
+        defaultValues: {
+            email: '',
+            password: ''
+        }
+    });
 
     return (
         <div className='loginContainer'>
-            <form className='loginForm' onSubmit={handleLogin}>
+            <form onSubmit={handleSubmit(handleLogin)} className='loginForm'>
+                <img className='logo' src={logo} alt="logo" />
                 <h2 className='loginFormTitle'>Iniciar sesión</h2>
                 <input
+                    {...register('email', { required: true })}
                     className='inputLogin'
-                    onChange={(e) => setName(e.target.value)}
                     type="text"
-                    name="name"
+                    name="email"
                     placeholder="Email"
+                    style={errors.email ? { border: 'solid 1px #ec6363' } : { border: 'solid 1px #353535'}}
                 />
                 <input
+                    {...register('password', { required: true })}
                     className='inputLogin'
-                    onChange={(e) => setPassword(e.target.value)}
                     type="password"
                     name="password"
                     placeholder="Contraseña"
+                    style={errors.password ? { border: 'solid 1px #ec6363' } : { border: 'solid 1px #353535'}}
                 />
-                <button className='loginButton' type="submit">Iniciar sesión</button>
+                <button className='loginButton' type="submit">
+                    {loading ? <LoadingIcon /> : 'Iniciar sesión'}
+                </button>
             </form>
             <p className='subtitle'>¿No tienes una cuenta?</p>
             <NavLink to='/register'>Registrate.</NavLink>
