@@ -1,6 +1,6 @@
-import { useParams } from "react-router-dom";
-import './ReadUpdateNote.css';
 import { useState, useEffect } from "react";
+import './ReadUpdateNote.css';
+import { useParams } from "react-router-dom";
 import { getNote, updateNote, deleteNote } from "../../services/notes";
 import { Header } from "./components";
 import { Modal } from "../../components";

@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
 import './Login.css';
+import { NavLink } from 'react-router-dom';
 import { useAuthStore } from '../../store/useAuthStore';
 
 export const Login = () => {

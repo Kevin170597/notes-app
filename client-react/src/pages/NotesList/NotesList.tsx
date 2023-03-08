@@ -1,9 +1,9 @@
 import { useEffect, useState } from 'react';
 import './NotesList.css';
-import { FloatingButton } from '../../components';
-import { AddIcon } from '../../assets/icons/Add';
-import { Header, NoteCard } from './components';
 import { useNavigate } from 'react-router-dom';
+import { FloatingButton } from '../../components';
+import { AddIcon } from '../../assets/icons';
+import { Header, NoteCard } from './components';
 
 export const NotesList = () => {
     const navigate = useNavigate();

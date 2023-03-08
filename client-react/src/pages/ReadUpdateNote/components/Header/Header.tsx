@@ -1,10 +1,7 @@
-import './Header.css';
 import { NavLink } from 'react-router-dom';
-import { ArrowBackIcon } from '../../../../assets/icons/ArrowBack';
-import { LoadingIcon } from '../../../../assets/icons/Loading';
-import { DeleteIcon } from '../../../../assets/icons/Delete';
-import { SaveIcon } from '../../../../assets/icons/Save';
+import './Header.css';
 import { ColorSelector } from '../ColorSelector/ColorSelector';
+import { ArrowBackIcon, LoadingIcon, DeleteIcon, SaveIcon } from '../../../../assets/icons';
 
 export const Header = ({ saving, save, color, note, setNote, deleteButton, setModal }: any) => {
 

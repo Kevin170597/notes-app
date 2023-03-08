@@ -1,4 +1,3 @@
-
 import { useState } from 'react';
 import './CreateNote.css';
 import { Header } from '../ReadUpdateNote/components';

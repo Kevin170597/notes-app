@@ -1,6 +1,6 @@
 
 import { useState } from 'react';
-import { ArrowDownIcon } from '../../../../assets/icons/ArrowDown';
+import { ArrowDownIcon } from '../../../../assets/icons';
 import './ColorSelector.css';
 
 export const ColorSelector = ({ color, setNote, note }: any) => {
