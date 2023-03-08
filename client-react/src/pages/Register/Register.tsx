@@ -1,8 +1,11 @@
 import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { registerUser } from '../../services';
 import './Register.css';
+// Services
+import { registerUser } from '../../services';
+// Hooks
 import { useForm } from 'react-hook-form';
+// Assets
 import logo from '../../assets/icon.png';
 import { LoadingIcon } from '../../assets/icons';
 

@@ -1,9 +1,10 @@
 import { create } from 'zustand';
+import { AuthStore } from '../models';
 
-export const useAuthStore = create((set) => ({
+export const useAuthStore = create<AuthStore>((set) => ({
     authToken: '',
     getAuth: () => {
-        const token = window.localStorage.getItem('token')
+        const token = <string>window.localStorage.getItem('token')
         set(() => ({
             authToken: token,
         }))

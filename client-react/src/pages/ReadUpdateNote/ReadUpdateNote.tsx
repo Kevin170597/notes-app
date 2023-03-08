@@ -1,10 +1,14 @@
 import { useState, useEffect } from 'react';
 import './ReadUpdateNote.css';
 import { useParams } from 'react-router-dom';
-import { getNote, updateNote, deleteNote } from '../../services/notes';
-import { Header } from './components';
-import { Modal, ImageMessage } from '../../components';
 import { useNavigate } from 'react-router-dom';
+// Services
+import { getNote, updateNote, deleteNote } from '../../services/notes';
+// Page Components
+import { Header } from './components';
+// Global Components
+import { Modal, ImageMessage } from '../../components';
+// Assets
 import { LoadingIcon } from '../../assets/icons';
 import Error from '../../assets/error.png';
 
