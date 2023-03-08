@@ -30,13 +30,13 @@ export const CreateNote = () => {
             <Header saving={loading} save={handleCreateNote} color={newNote.color} note={newNote} setNote={setNewNote} />
             <div className='newNote'>
                 <input
-                    type="text"
-                    placeholder="Título"
+                    type='text'
+                    placeholder='Título'
                     value={newNote.title}
                     onChange={(e) => setNewNote({ ...newNote, title: e.target.value })}
                 />
                 <textarea
-                    name=""
+                    name=''
                     cols={30}
                     rows={10}
                     value={newNote.content}

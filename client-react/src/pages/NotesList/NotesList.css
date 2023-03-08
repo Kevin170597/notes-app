@@ -13,18 +13,3 @@
     overflow-y: auto;
     padding: 10px;
 }
-
-.empty {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin-top: 70px;
-}
-
-.empty img {
-    width: 60%;
-}
-
-.empty p {
-    color: #b8b4b4;
-}
