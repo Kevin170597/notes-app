@@ -27,7 +27,7 @@ export const login = async (req: Request, res: Response) => {
             path: '/',
             secure: true,
             httpOnly: true
-        }).status(200).send({login: 'success'});
+        }).status(200).send(response);
     } catch (error) {
         console.log(error);
         res.status(400).send({error});
