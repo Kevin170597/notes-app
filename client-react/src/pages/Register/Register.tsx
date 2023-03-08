@@ -1,32 +1,58 @@
 import { useState } from 'react';
 import { NavLink, useNavigate } from 'react-router-dom';
-import { register } from '../../services';
+import { registerUser } from '../../services';
+import './Register.css';
+import { useForm } from 'react-hook-form';
+import logo from '../../assets/icon.png';
+import { LoadingIcon } from '../../assets/icons';
 
 export const Register = () => {
-    const [name, setName] = useState<string>('');
-    const [password, setPassword] = useState<string>('');
+    const [loading, setLoading] = useState<boolean>(false);
+
     const navigate = useNavigate();
 
-    const handleRegister = async (e:any) => {
-        try {
-            e.preventDefault();
-            await register(name, password);
-            return navigate('/login');
-        } catch (error) {
-            console.log(error)
-        }
+    const handleRegister = async (data: any) => {
+        setLoading(true);
+        console.log(data);
+        await registerUser(data.email, data.password);
+        setLoading(false);
+        return navigate('/login');
     };
 
+    const { register, handleSubmit, formState: { errors } } = useForm({
+        defaultValues: {
+            email: '',
+            password: ''
+        }
+    });
+
     return (
-        <div className='Register'>
-            <form onSubmit={handleRegister}>
-                <h1>Register</h1>
-                <input onChange={(e) => setName(e.target.value)} type="text" name="name" placeholder="name" />
-                <input onChange={(e) => setPassword(e.target.value)} type="password" name="password" placeholder="password" />
-                <button type="submit">Send</button>
+        <div className='registerContainer'>
+            <form onSubmit={handleSubmit(handleRegister)} className='registerForm'>
+                <img className='logo' src={logo} alt="logo" />
+                <h2 className='registerFormTitle'>Registrarte</h2>
+                <input
+                    {...register('email', { required: true })}
+                    className='inputregister'
+                    type="text"
+                    name="email"
+                    placeholder="Email"
+                    style={errors.email ? { border: 'solid 1px #ec6363' } : { border: 'solid 1px #353535' }}
+                />
+                <input
+                    {...register('password', { required: true })}
+                    className='inputregister'
+                    type="password"
+                    name="password"
+                    placeholder="Contraseña"
+                    style={errors.password ? { border: 'solid 1px #ec6363' } : { border: 'solid 1px #353535' }}
+                />
+                <button className='registerButton' type="submit">
+                    {loading ? <LoadingIcon /> : 'Registrarte'}
+                </button>
             </form>
-            <p>Do you have an account?</p>
-            <NavLink to='/login'>Login</NavLink>
+            <p className='subtitle'>¿Ya tienes una cuenta?</p>
+            <NavLink to='/login'>Inicia sesión.</NavLink>
         </div>
     )
 };

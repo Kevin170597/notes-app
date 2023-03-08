@@ -11,21 +11,29 @@ export const getAll = async () => {
 };
 
 export const getOne = async (token: string) => {
-    const user = await jwt.verify(token, 'mysecret');
+    const user = await jwt.verify(token, process.env.JWT_SECRET);
     const response = await UserModel.findOne({_id: user._id});
     return response;
 };
 
 export const logUser = async (user: User) => {
-    const response = await UserModel.findOne({name: user.name});
+    const response = await UserModel.findOne({email: user.email});
     const compare = await bcrypt.compare(user.password, response?.password);
+    const userdata = {
+        _id: response?._id,
+        email: response?.email,
+        name: response?.name
+    }
     if (compare) {
-        return jwt.sign(response?.toJSON(), 'mysecret');
+        return {
+            user: userdata,
+            token: jwt.sign(response?.toJSON(), process.env.JWT_SECRET)
+        }
     } else return null;
 };
 
 interface RegUser {
-    name: string,
+    email: string,
     password: string
 }
 
