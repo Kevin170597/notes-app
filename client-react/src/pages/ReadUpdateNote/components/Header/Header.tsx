@@ -2,10 +2,11 @@ import './Header.css';
 import { NavLink } from 'react-router-dom';
 import { ArrowBackIcon } from '../../../../assets/icons/ArrowBack';
 import { LoadingIcon } from '../../../../assets/icons/Loading';
-import { DoneIcon } from '../../../../assets/icons/Done';
+import { DeleteIcon } from '../../../../assets/icons/Delete';
+import { SaveIcon } from '../../../../assets/icons/Save';
 import { ColorSelector } from '../ColorSelector/ColorSelector';
 
-export const Header = ({ saving, save, color, note, setNote }: any) => {
+export const Header = ({ saving, save, color, note, setNote, deleteButton, setModal }: any) => {
 
     return (
         <header className='header'>
@@ -16,8 +17,13 @@ export const Header = ({ saving, save, color, note, setNote }: any) => {
             </button>
             <h2 className='title'>Notas</h2>
             <ColorSelector color={color} setNote={setNote} note={note} />
-            <button className='saveButton' onClick={save}>
-                {saving ? <LoadingIcon /> : <DoneIcon />}
+            {deleteButton &&
+                <button className='actionButton' onClick={() => setModal(true)}>
+                    <DeleteIcon />
+                </button>
+            }
+            <button className='actionButton' onClick={save}>
+                {saving ? <LoadingIcon /> : <SaveIcon />}
             </button>
         </header>
     )
