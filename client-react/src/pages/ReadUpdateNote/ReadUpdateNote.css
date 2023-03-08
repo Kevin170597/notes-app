@@ -56,8 +56,16 @@
     }
 }
 
-.title {
+.modalHeader {
+    display: flex;
+    align-items: center;
+    margin-bottom: 16px;
+}
+
+.modalHeader .title {
     color: #fff;
+    margin: 0 10px 0 0;
+    font-size: 18px;
 }
 
 .cancelButton {

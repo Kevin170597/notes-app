@@ -6,6 +6,11 @@ import './ColorSelector.css';
 export const ColorSelector = ({ color, setNote, note }: any) => {
     const [colorSelector, setColorSelector] = useState<boolean>(false);
 
+    const handleSelectColor = (color: string) => {
+        setNote({...note, color});
+        setColorSelector(false);
+    }
+
     return (
         <div>
             <button className='colorSelector' onClick={() => setColorSelector(!colorSelector)}>
@@ -17,7 +22,7 @@ export const ColorSelector = ({ color, setNote, note }: any) => {
                     {['#ff9e9e', '#7fd57d', '#fff599', '#9effff', '#b69cff'].map((e) =>
                         <button
                             key={e}
-                            onClick={() => setNote({ ...note, color: e })}
+                            onClick={() => handleSelectColor(e)}
                             style={{ backgroundColor: e }}
                             className='colorOption'></button>
                     )}

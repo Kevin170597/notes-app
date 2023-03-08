@@ -1,6 +1,8 @@
+import './Loading.css';
 
 export const LoadingIcon = (props: any) => (
     <svg
+        className='spinner'
         xmlns="http://www.w3.org/2000/svg"
         height={24}
         viewBox="0 96 960 960"
