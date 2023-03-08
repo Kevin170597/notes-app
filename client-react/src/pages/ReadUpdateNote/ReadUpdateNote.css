@@ -1,6 +1,6 @@
 .addNoteContainer {
     height: 100vh;
-    background-color: #252525;
+    background-color: var(--background);
 }
 
 .addNoteContainer .note {
@@ -16,7 +16,7 @@
 .addNoteContainer .note input {
     width: 80%;
     background: none;
-    color: #bdbdbd;
+    color: var(--font2);
     height: 50px;
     border: none;
     font-size: 24px;
@@ -27,13 +27,13 @@
 
 .addNoteContainer .note input:focus {
     outline: none;
-    background-color: #303030;
+    background-color: var(--background2);
 }
 
 .addNoteContainer .note textarea {
     width: 80%;
     background: none;
-    color: #bdbdbd;
+    color: var(--font2);
     height: calc(100% - 60px);
     border: none;
     box-sizing: border-box;
@@ -44,7 +44,7 @@
 
 .addNoteContainer .note textarea:focus {
     outline: none;
-    background-color: #303030;
+    background-color: var(--background2);
 }
 
 @media (max-width: 600px) {
@@ -63,14 +63,14 @@
 }
 
 .modalHeader .title {
-    color: #fff;
+    color: var(--font);
     margin: 0 10px 0 0;
     font-size: 18px;
 }
 
 .cancelButton {
     background-color: #535353;
-    color: #fff;
+    color: var(--font);
     border: none;
     padding: 8px 10px;
     border-radius: 6px;
@@ -79,8 +79,8 @@
 }
 
 .deleteButton {
-    background-color: #5f367a;
-    color: #fff;
+    background-color: var(--primary);
+    color: var(--font);
     border: none;
     padding: 8px 10px;
     border-radius: 6px;

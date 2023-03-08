@@ -10,5 +10,5 @@
 }
 
 .empty p {
-    color: #b8b4b4;
+    color: var(--font2);
 }

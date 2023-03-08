@@ -1,5 +1,5 @@
 .colorSelector {
-    background-color: #3b3b3b;
+    background-color: var(--background2);
     border: none;
     height: 35px;
     border-radius: 8px;
@@ -18,7 +18,7 @@
 }
 
 .colorSelectorModal {
-    background-color: #3b3b3b;
+    background-color: var(--background2);
     position: absolute;
     left: 24px;
     top: 10vh;
