@@ -7,16 +7,42 @@
 }
 
 .header h2 {
-    color: #fff;
+    color: var(--font);
     margin: 0;
     margin-right: auto;
 }
 
 .header .profileButton {
-    background-color: #353535;
+    background-color: var(--background2);
     border: none;
     height: 40px;
     aspect-ratio: 1;
     border-radius: 100%;
-    color: #fff;
+    color: var(--font);
+    cursor: pointer;
+}
+
+.header .userModal {
+    background-color: var(--background2);
+    position: absolute;
+    right: 16px;
+    top: 10vh;
+    padding: 10px 16px;
+    border-radius: 8px;
+}
+
+.header .userModal p {
+    margin: 8px 0 16px;
+    color: var(--font);
+}
+
+.header .userModal button {
+    margin:  0 0 8px;
+    width: 100%;
+    background: none;
+    border: solid 1px var(--background);
+    color: var(--font);
+    padding: 10px;
+    border-radius: 8px;
+    cursor: pointer;
 }

@@ -1,10 +1,18 @@
 import { useState } from 'react';
-import './CreateNote.css';
-import { Header } from '../ReadUpdateNote/components';
-import { createNote } from '../../services';
 import { useNavigate } from 'react-router-dom';
+import './CreateNote.css';
+// Page components
+import { Header } from '../ReadUpdateNote/components';
+// Services
+import { createNote } from '../../services';
+// Global Stores
+import { useLoggedUserStore } from '../../store/useLoggedUserStore';
+// Typescript interfaces
+import { LoggedUserStore } from '../../models';
 
 export const CreateNote = () => {
+    const { _id } = useLoggedUserStore((state: LoggedUserStore) => state.loggedUser);
+
     const navigate = useNavigate();
 
     const [loading, setLoading] = useState<boolean>(false);
@@ -12,7 +20,7 @@ export const CreateNote = () => {
         title: '',
         content: '',
         color: '#b69cff',
-        owner: '2'
+        owner: _id
     });
 
     const handleCreateNote = async () => {
@@ -27,13 +35,13 @@ export const CreateNote = () => {
             <Header saving={loading} save={handleCreateNote} color={newNote.color} note={newNote} setNote={setNewNote} />
             <div className='newNote'>
                 <input
-                    type="text"
-                    placeholder="Título"
+                    type='text'
+                    placeholder='Título'
                     value={newNote.title}
                     onChange={(e) => setNewNote({ ...newNote, title: e.target.value })}
                 />
                 <textarea
-                    name=""
+                    name=''
                     cols={30}
                     rows={10}
                     value={newNote.content}

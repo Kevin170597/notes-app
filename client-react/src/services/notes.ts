@@ -1,4 +1,12 @@
+import { Note } from "../models";
 const API = 'https://notes-app-production-fa30.up.railway.app';
+
+export const getNotes = async (userid: string) => {
+    const req = await fetch(`${API}/notes/user/${userid}`);
+    const res = await req.json();
+    //console.log(res);
+    return res;
+};
 
 export const getNote = async (id: string) => {
     const req = await fetch(`${API}/notes/${id}`);
@@ -7,7 +15,7 @@ export const getNote = async (id: string) => {
     return res[0];
 };
 
-export const createNote = async (note: any) => {
+export const createNote = async (note: Note) => {
     const req = await fetch(`${API}/notes`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
@@ -18,7 +26,7 @@ export const createNote = async (note: any) => {
     return res;
 };
 
-export const updateNote = async (id: string, note: any) => {
+export const updateNote = async (id: string, note: Note) => {
     const req = await fetch(`${API}/notes/${id}`, {
         method: 'PATCH',
         headers: {

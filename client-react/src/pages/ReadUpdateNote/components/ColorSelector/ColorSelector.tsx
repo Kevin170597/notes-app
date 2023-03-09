@@ -1,7 +1,7 @@
-
 import { useState } from 'react';
-import { ArrowDownIcon } from '../../../../assets/icons';
 import './ColorSelector.css';
+// Assets
+import { ArrowDownIcon } from '../../../../assets/icons';
 
 export const ColorSelector = ({ color, setNote, note }: any) => {
     const [colorSelector, setColorSelector] = useState<boolean>(false);
