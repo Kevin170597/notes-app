@@ -11,6 +11,8 @@ import { useForm, Controller } from 'react-hook-form';
 // Components
 import { Header } from '../features/ReadUpdateNote/components/Header';
 import { Modal } from '../components/Modal';
+// Constants
+import colors from '../constants/colors';
 // Assets
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -159,7 +161,7 @@ export const ReadUpdateNote = ({ route }) => {
 const styles = StyleSheet.create({
     addNoteContainer: {
         height: '100%',
-        backgroundColor: '#252525'
+        backgroundColor: colors.background
     },
     note: {
         height: '90%',
@@ -172,7 +174,7 @@ const styles = StyleSheet.create({
         fontSize: 24,
         paddingHorizontal: 16,
         borderRadius: 8,
-        color: '#b9b9b9'
+        color: colors.font2
     },
     textarea: {
         width: '100%',
@@ -182,7 +184,7 @@ const styles = StyleSheet.create({
         padding: 16,
         fontSize: 16,
         textAlignVertical: 'top',
-        color: '#b9b9b9'
+        color: colors.font2
     },
     modalHeader: {
         flexDirection: 'row',
@@ -197,7 +199,7 @@ const styles = StyleSheet.create({
         marginRight: 10
     },
     deleteButton: {
-        backgroundColor: '#7059ab',
+        backgroundColor: colors.primary,
         paddingVertical: 8,
         paddingHorizontal: 10,
         borderRadius: 8

@@ -14,6 +14,8 @@ import { FloatingButton } from '../components/FloatingButton';
 import Icon from 'react-native-vector-icons/MaterialIcons';
 import Empty from '../assets/empty.png';
 import Error from '../assets/error.png';
+// Constants
+import colors from '../constants/colors';
 // Global stores
 import { useLoggedUserStore } from '../store/useLoggedUserStore';
 
@@ -73,7 +75,7 @@ export const NotesList = () => {
 const styles = StyleSheet.create({
     notesContainer: {
         height: '100%',
-        backgroundColor: '#252525',
+        backgroundColor: colors.background,
         paddingHorizontal: 10,
         paddingTop: 0
     }

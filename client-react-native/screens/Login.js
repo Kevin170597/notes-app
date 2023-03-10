@@ -8,6 +8,8 @@ import { useForm, Controller } from 'react-hook-form';
 import Logo from '../assets/logo.png';
 // Services
 import { login } from '../services/user';
+// Constants 
+import colors from '../constants/colors';
 //Global stores
 import { useAuthStore } from '../store/useAuthStore';
 import { useLoggedUserStore } from '../store/useLoggedUserStore';
@@ -113,13 +115,13 @@ export const Login = () => {
 
 const styles = StyleSheet.create({
     loginContainer: {
-        backgroundColor: '#252525',
+        backgroundColor: colors.background,
         height: '100%',
         alignItems: 'center'
     },
     loginForm: {
         borderWidth: 1,
-        borderColor: '#353535',
+        borderColor: colors.lines,
         alignItems: 'center',
         width: '90%',
         paddingTop: 24,
@@ -133,7 +135,7 @@ const styles = StyleSheet.create({
         height: 80
     },
     loginFormTitle: {
-        color: '#fff',
+        color: colors.font,
         marginTop: 8,
         marginBottom: 24,
         fontSize: 20
@@ -144,12 +146,12 @@ const styles = StyleSheet.create({
         marginBottom: 24,
         borderRadius: 8,
         paddingLeft: 16,
-        color: '#fff',
+        color: colors.font,
         borderWidth: 1,
-        borderColor: '#353535'
+        borderColor: colors.lines
     },
     loginButton: {
-        backgroundColor: '#724d94',
+        backgroundColor: colors.primary,
         height: 50,
         width: '90%',
         borderRadius: 8,
