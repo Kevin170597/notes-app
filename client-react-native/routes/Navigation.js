@@ -5,6 +5,7 @@ import { NotesList } from '../screens/NotesList';
 import { ReadUpdateNote } from '../screens/ReadUpdateNote';
 import { CreateNote } from '../screens/CreateNote';
 import { Login } from '../screens/Login';
+import { Register } from '../screens/Register';
 // Global stores
 import { useAuthStore } from '../store/useAuthStore';
 
@@ -39,6 +40,11 @@ export const Navigation = () => {
                     <Stack.Screen
                         name='Login'
                         component={Login}
+                        options={{ headerShown: false }}
+                    />
+                    <Stack.Screen
+                        name='Register'
+                        component={Register}
                         options={{ headerShown: false }}
                     />
                 </>
