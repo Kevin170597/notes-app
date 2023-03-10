@@ -87,7 +87,14 @@ export const ReadUpdateNote = ({ route }) => {
                             name='title'
                             render={({ field: { onChange, onBlur, value } }) => (
                                 <TextInput
-                                    style={styles.input}
+                                    style={[styles.input, errors.title ?
+                                        {
+                                            borderWidth: 1,
+                                            borderColor: '#e77b32'
+                                        } :
+                                        {
+                                            borderWidth: 0
+                                        }]}
                                     placeholderTextColor='#6e6e6e'
                                     placeholder='Título'
                                     onChangeText={onChange}
@@ -102,7 +109,14 @@ export const ReadUpdateNote = ({ route }) => {
                             name='content'
                             render={({ field: { onChange, onBlur, value } }) => (
                                 <TextInput
-                                    style={styles.textarea}
+                                    style={[styles.textarea, errors.content ?
+                                        {
+                                            borderWidth: 1,
+                                            borderColor: '#e77b32'
+                                        } :
+                                        {
+                                            borderWidth: 0
+                                        }]}
                                     multiline
                                     placeholderTextColor='#6e6e6e'
                                     placeholder='Escribir...'
@@ -159,6 +173,8 @@ const styles = StyleSheet.create({
     textarea: {
         width: '100%',
         height: '88%',
+        marginTop: 10,
+        borderRadius: 8,
         padding: 16,
         fontSize: 16,
         textAlignVertical: 'top',
