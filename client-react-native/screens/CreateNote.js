@@ -8,6 +8,8 @@ import { useForm, Controller } from 'react-hook-form';
 import { createNote } from '../services/notes';
 // Components
 import { Header } from '../features/ReadUpdateNote/components/Header';
+// Constants
+import colors from '../constants/colors';
 // Global stores
 import { useLoggedUserStore } from '../store/useLoggedUserStore';
 
@@ -101,7 +103,7 @@ export const CreateNote = () => {
 const styles = StyleSheet.create({
     createNoteContainer: {
         height: '100%',
-        backgroundColor: '#252525'
+        backgroundColor: colors.background
     },
     newNote: {
         height: '90%',
@@ -114,7 +116,7 @@ const styles = StyleSheet.create({
         fontSize: 24,
         paddingHorizontal: 16,
         borderRadius: 8,
-        color: '#b9b9b9'
+        color: colors.font2
     },
     textarea: {
         width: '100%',
@@ -124,6 +126,6 @@ const styles = StyleSheet.create({
         padding: 16,
         fontSize: 16,
         textAlignVertical: 'top',
-        color: '#b9b9b9'
+        color: colors.font2
     },
 });

@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+// Constatns
+import colors from '../../../constants/colors';
 // Global stores
 import { useAuthStore } from '../../../store/useAuthStore';
 import { useLoggedUserStore } from '../../../store/useLoggedUserStore';
@@ -43,11 +45,11 @@ const styles = StyleSheet.create({
         zIndex: 1
     },
     title: {
-        color: '#fff',
+        color: colors.font,
         fontSize: 20
     },
     profileButton: {
-        backgroundColor: '#353535',
+        backgroundColor: colors.background2,
         height: 40,
         aspectRatio: 1,
         borderRadius: 40,
@@ -55,7 +57,7 @@ const styles = StyleSheet.create({
         alignItems: 'center'
     },
     userModal: {
-        backgroundColor: '#353535',
+        backgroundColor: colors.background2,
         position: 'absolute',
         paddingHorizontal: 16,
         paddingVertical: 10,
@@ -64,7 +66,7 @@ const styles = StyleSheet.create({
         top: 66,
     },
     name: {
-        color: '#fff',
+        color: colors.font,
         marginTop: 8,
         marginBottom: 16
     },
@@ -72,7 +74,7 @@ const styles = StyleSheet.create({
         marginBottom: 8,
         width: '100%',
         borderWidth: 1,
-        borderColor: '#252525',
+        borderColor: colors.lines,
         padding: 10,
         borderRadius: 8
     }

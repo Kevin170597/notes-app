@@ -3,6 +3,8 @@ import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 //Components
 import { ColorSelector } from './ColorSelector';
+// Constatns
+import colors from '../../../constants/colors';
 // Assets
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -42,17 +44,17 @@ const styles = StyleSheet.create({
         height: 40,
         aspectRatio: 1,
         borderRadius: 8,
-        backgroundColor: '#353535',
+        backgroundColor: colors.background2,
         justifyContent: 'center',
         alignItems: 'center'
     },
     title: {
-        color: '#fff',
+        color: colors.font,
         fontSize: 20,
         marginHorizontal: 12
     },
     actionButton: {
-        backgroundColor: '#353535',
+        backgroundColor: colors.background2,
         height: 35,
         aspectRatio: 1,
         borderRadius: 8,

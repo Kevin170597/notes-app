@@ -1,5 +1,7 @@
 import { useState } from 'react';
 import { View, TouchableOpacity, Dimensions, StyleSheet } from 'react-native';
+// Constatns
+import colors from '../../../constants/colors';
 // Assets
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
@@ -35,7 +37,7 @@ export const ColorSelector = ({ color, setColor, note }) => {
 
 const styles = StyleSheet.create({
     colorSelector: {
-        backgroundColor: '#353535',
+        backgroundColor: colors.background2,
         height: 35,
         borderRadius: 8,
         padding: 5,
@@ -50,7 +52,7 @@ const styles = StyleSheet.create({
         marginRight: 10
     },
     colorSelectorModal: {
-        backgroundColor: '#353535',
+        backgroundColor: colors.background2,
         padding: 10,
         borderRadius: 8,
         width: Dimensions.get('window').width / 2.2,
