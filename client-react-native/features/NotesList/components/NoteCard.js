@@ -20,7 +20,8 @@ const styles = StyleSheet.create({
         width: '100%',
         padding: 20,
         marginBottom: 12,
-        borderRadius: 8
+        borderRadius: 8,
+        maxHeight: 130
     },
     title: {
         color: '#414141',
