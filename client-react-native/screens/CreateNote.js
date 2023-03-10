@@ -102,7 +102,7 @@ const styles = StyleSheet.create({
     },
     input: {
         width: '100%',
-        height: '12%',
+        height: '8%',
         fontSize: 24,
         paddingHorizontal: 16,
         borderRadius: 8,
@@ -110,7 +110,7 @@ const styles = StyleSheet.create({
     },
     textarea: {
         width: '100%',
-        height: '88%',
+        height: '92%',
         marginTop: 10,
         borderRadius: 8,
         padding: 16,
