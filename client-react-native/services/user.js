@@ -5,7 +5,7 @@ export const login = async (email, password) => {
         {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ email, password })
+            body: JSON.stringify({ email: email.trim(), password: password.trim() })
         });
     const res = await user.json();
     console.log(res);
@@ -17,7 +17,7 @@ export const registerUser = async (name, email, password) => {
         {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify({ name, email, password })
+            body: JSON.stringify({ name: name.trim(), email: email.trim(), password: password.trim() })
         });
     const res = await user.json();
     //console.log(res);
