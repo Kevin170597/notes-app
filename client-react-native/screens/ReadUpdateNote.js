@@ -29,7 +29,6 @@ export const ReadUpdateNote = ({ route }) => {
 
     const handlerUpdateNote = async (data) => {
         data.color = color;
-        data.owner = '640823420f79b645e467fd16';
         setUpdateLoading(true);
         await updateNote(route.params._id, data);
         setUpdateLoading(false);

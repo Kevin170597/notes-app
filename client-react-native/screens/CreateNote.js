@@ -4,8 +4,11 @@ import { useNavigation } from '@react-navigation/native';
 import { useForm, Controller } from 'react-hook-form';
 import { createNote } from '../services/notes';
 import { Header } from '../features/ReadUpdateNote/components/Header';
+import { useLoggedUserStore } from '../store/useLoggedUserStore';
 
 export const CreateNote = () => {
+    const { _id } = useLoggedUserStore((state) => state.loggedUser);
+
     const navigation = useNavigation();
 
     const [loading, setLoading] = useState(false);
@@ -20,7 +23,7 @@ export const CreateNote = () => {
 
     const handleCreateNote = async (data) => {
         data.color = color;
-        data.owner = '640823420f79b645e467fd16';
+        data.owner = _id;
         setLoading(true);
         await createNote(data);
         setLoading(false);

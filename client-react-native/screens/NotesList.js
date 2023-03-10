@@ -1,6 +1,6 @@
 import { useCallback, useState } from 'react';
 import { useFocusEffect } from '@react-navigation/native';
-import { View, Text, StyleSheet, Image, FlatList, ActivityIndicator, Dimensions } from 'react-native';
+import { View, StyleSheet, Image, FlatList, ActivityIndicator, Dimensions } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { getNotes } from '../services/notes';
 import { NoteCard } from '../features/NotesList/components/NoteCard';
@@ -10,8 +10,11 @@ import { Header } from '../features/NotesList/components/Header';
 import { useNavigation } from '@react-navigation/native';
 import Empty from '../assets/empty.png';
 import Error from '../assets/error.png';
+import { useLoggedUserStore } from '../store/useLoggedUserStore';
 
 export const NotesList = () => {
+    const { _id } = useLoggedUserStore((state) => state.loggedUser);
+
     const navigation = useNavigation();
 
     const [notes, setNotes] = useState();
@@ -21,7 +24,7 @@ export const NotesList = () => {
     const handleGetNotes = async () => {
         try {
             setLoading(true);
-            const res = await getNotes('640823420f79b645e467fd16');
+            const res = await getNotes(_id);
             setNotes(res);
         } catch (error) {
             setError(true);

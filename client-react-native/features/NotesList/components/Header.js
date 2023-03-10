@@ -1,9 +1,11 @@
 import { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
 import { useAuthStore } from '../../../store/useAuthStore';
+import { useLoggedUserStore } from '../../../store/useLoggedUserStore';
 
 export const Header = () => {
     const logout = useAuthStore((state) => state.logout);
+    const loggedUser = useLoggedUserStore((state) => state.loggedUser);
 
     const [userModal, setUserModal] = useState(false);
 
@@ -16,11 +18,11 @@ export const Header = () => {
         <View style={styles.header}>
             <Text style={styles.title}>Notas</Text>
             <TouchableOpacity style={styles.profileButton} onPress={() => setUserModal(!userModal)}>
-                <Text style={{ color: '#fff' }}>{getLetters('Kevin Mendoza')}</Text>
+                <Text style={{ color: '#fff' }}>{getLetters(loggedUser?.name)}</Text>
             </TouchableOpacity>
             {userModal &&
                 <View style={styles.userModal}>
-                    <Text style={styles.name}>Kevin</Text>
+                    <Text style={styles.name}>{loggedUser?.name}</Text>
                     <TouchableOpacity style={styles.logoutButton} onPress={logout}>
                         <Text style={{ color: '#fff' }}>Cerrar sesión</Text>
                     </TouchableOpacity>

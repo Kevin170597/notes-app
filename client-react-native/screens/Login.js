@@ -5,9 +5,11 @@ import { Link } from '@react-navigation/native';
 import Logo from '../assets/logo.png';
 import { login } from '../services/user';
 import { useAuthStore } from '../store/useAuthStore';
+import { useLoggedUserStore } from '../store/useLoggedUserStore';
 
 export const Login = () => {
     const setAuth = useAuthStore((state) => state.setAuth);
+    const setLoggedUser = useLoggedUserStore((state) => state.setLoggedUser);
 
     const [loading, setLoading] = useState(false);
     const [error, setError] = useState('');
@@ -16,7 +18,7 @@ export const Login = () => {
         try {
             setLoading(true);
             const response = await login(data.email, data.password);
-            //setLoggedUser(response.user);
+            setLoggedUser(response.user);
             setAuth(response.token);
         } catch (error) {
             setError('error');
@@ -49,7 +51,8 @@ export const Login = () => {
                                     borderColor: '#e77b32'
                                 } :
                                 {
-                                    borderWidth: 0
+                                    borderWidth: 1,
+                                    borderColor: '#353535'
                                 }]}
                             placeholderTextColor='#6e6e6e'
                             placeholder='Email'
@@ -72,7 +75,8 @@ export const Login = () => {
                                     borderColor: '#e77b32'
                                 } :
                                 {
-                                    borderWidth: 0
+                                    borderWidth: 1,
+                                    borderColor: '#353535'
                                 }]}
                             placeholderTextColor='#6e6e6e'
                             placeholder='Contraseña'
