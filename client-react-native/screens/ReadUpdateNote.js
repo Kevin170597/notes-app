@@ -1,6 +1,6 @@
 import { useState, useCallback } from 'react';
 import { useFocusEffect } from '@react-navigation/native';
-import { View, Text, TouchableOpacity, TextInput, StyleSheet } from 'react-native';
+import { View, Text, TouchableOpacity, TextInput, ActivityIndicator, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { getNote, updateNote, deleteNote } from '../services/notes';
 import { useForm, Controller } from 'react-hook-form';
@@ -79,7 +79,8 @@ export const ReadUpdateNote = ({ route }) => {
                 setColor={setColor}
             />
             <View style={styles.note}>
-                {note &&
+                {loading && <ActivityIndicator size='large' color='#fff' />}
+                {note && !loading &&
                     <>
                         <Controller
                             control={control}
@@ -160,11 +161,10 @@ const styles = StyleSheet.create({
         height: '90%',
         alignItems: 'center',
         paddingHorizontal: 8,
-        paddingTop: 16
     },
     input: {
         width: '100%',
-        height: '12%',
+        height: '8%',
         fontSize: 24,
         paddingHorizontal: 16,
         borderRadius: 8,
@@ -172,7 +172,7 @@ const styles = StyleSheet.create({
     },
     textarea: {
         width: '100%',
-        height: '88%',
+        height: '92%',
         marginTop: 10,
         borderRadius: 8,
         padding: 16,
