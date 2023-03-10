@@ -1,9 +1,14 @@
 import { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Image, ActivityIndicator, StyleSheet } from 'react-native';
-import { useForm, Controller } from 'react-hook-form';
+// Navigation
 import { Link } from '@react-navigation/native';
+// Hooks
+import { useForm, Controller } from 'react-hook-form';
+// Assets
 import Logo from '../assets/logo.png';
+// Services
 import { login } from '../services/user';
+//Global stores
 import { useAuthStore } from '../store/useAuthStore';
 import { useLoggedUserStore } from '../store/useLoggedUserStore';
 

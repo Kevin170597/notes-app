@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { View, TouchableOpacity, Dimensions, StyleSheet } from 'react-native';
+// Assets
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export const ColorSelector = ({ color, setColor, note }) => {

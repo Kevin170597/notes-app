@@ -1,4 +1,4 @@
-import { TouchableOpacity, Text, StyleSheet } from "react-native";
+import { TouchableOpacity, Text, StyleSheet } from 'react-native';
 
 export const FloatingButton = ({ onPress, loading, icon }) => {
 

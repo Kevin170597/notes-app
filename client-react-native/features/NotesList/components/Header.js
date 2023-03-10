@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+// Global stores
 import { useAuthStore } from '../../../store/useAuthStore';
 import { useLoggedUserStore } from '../../../store/useLoggedUserStore';
 
