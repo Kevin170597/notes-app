@@ -1,7 +1,10 @@
 import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
-import Icon from 'react-native-vector-icons/MaterialIcons';
+// Navigation
 import { useNavigation } from '@react-navigation/native';
+//Components
 import { ColorSelector } from './ColorSelector';
+// Assets
+import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export const Header = ({ saving, save, color, note, setColor, deleteButton, setModal }) => {
     const navigation = useNavigation();

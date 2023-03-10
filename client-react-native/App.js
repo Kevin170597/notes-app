@@ -1,7 +1,9 @@
 import { useEffect } from 'react';
+import { StatusBar } from 'react-native';
+// Navigation
 import { NavigationContainer } from '@react-navigation/native';
 import { Navigation } from './routes/Navigation';
-import { StatusBar } from 'react-native';
+// Global stores
 import { useAuthStore } from './store/useAuthStore';
 import { useLoggedUserStore } from './store/useLoggedUserStore';
 

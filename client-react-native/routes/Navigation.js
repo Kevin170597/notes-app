@@ -1,10 +1,12 @@
-
-import { createStackNavigator } from "@react-navigation/stack";
-import { NotesList } from "../screens/NotesList";
+// Navigation
+import { createStackNavigator } from '@react-navigation/stack';
+// Screens Components
+import { NotesList } from '../screens/NotesList';
 import { ReadUpdateNote } from '../screens/ReadUpdateNote';
-import { CreateNote } from "../screens/CreateNote";
-import { Login } from "../screens/Login";
-import { useAuthStore } from "../store/useAuthStore";
+import { CreateNote } from '../screens/CreateNote';
+import { Login } from '../screens/Login';
+// Global stores
+import { useAuthStore } from '../store/useAuthStore';
 
 const Stack = createStackNavigator();
 

@@ -1,9 +1,14 @@
 import { useState, useEffect } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet } from 'react-native';
+import { View, Text, TextInput,  StyleSheet } from 'react-native';
+// Navigation
 import { useNavigation } from '@react-navigation/native';
+// Hooks
 import { useForm, Controller } from 'react-hook-form';
+// Services
 import { createNote } from '../services/notes';
+// Components
 import { Header } from '../features/ReadUpdateNote/components/Header';
+// Global stores
 import { useLoggedUserStore } from '../store/useLoggedUserStore';
 
 export const CreateNote = () => {

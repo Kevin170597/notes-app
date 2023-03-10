@@ -1,12 +1,17 @@
 import { useState, useCallback } from 'react';
-import { useFocusEffect } from '@react-navigation/native';
 import { View, Text, TouchableOpacity, TextInput, ActivityIndicator, StyleSheet } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+// Navigation
+import { useNavigation } from '@react-navigation/native';
+import { useFocusEffect } from '@react-navigation/native';
+// Services
 import { getNote, updateNote, deleteNote } from '../services/notes';
+// Hooks
 import { useForm, Controller } from 'react-hook-form';
+// Components
 import { Header } from '../features/ReadUpdateNote/components/Header';
 import { Modal } from '../components/Modal';
-import { useNavigation } from '@react-navigation/native';
+// Assets
 import Icon from 'react-native-vector-icons/MaterialIcons';
 
 export const ReadUpdateNote = ({ route }) => {

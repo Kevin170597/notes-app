@@ -1,5 +1,6 @@
 
-import { View, Text, TouchableOpacity, StyleSheet } from 'react-native';
+import { Text, TouchableOpacity, StyleSheet } from 'react-native';
+// Navigation
 import { useNavigation } from '@react-navigation/native';
 
 export const NoteCard = ({ note }) => {

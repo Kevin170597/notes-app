@@ -1,15 +1,20 @@
 import { useCallback, useState } from 'react';
-import { useFocusEffect } from '@react-navigation/native';
 import { View, StyleSheet, Image, FlatList, ActivityIndicator, Dimensions } from 'react-native';
 import { SafeAreaView } from 'react-native-safe-area-context';
+// NNavigation
+import { useFocusEffect } from '@react-navigation/native';
+import { useNavigation } from '@react-navigation/native';
+// services
 import { getNotes } from '../services/notes';
+// Components
+import { Header } from '../features/NotesList/components/Header';
 import { NoteCard } from '../features/NotesList/components/NoteCard';
 import { FloatingButton } from '../components/FloatingButton';
+// Assets
 import Icon from 'react-native-vector-icons/MaterialIcons';
-import { Header } from '../features/NotesList/components/Header';
-import { useNavigation } from '@react-navigation/native';
 import Empty from '../assets/empty.png';
 import Error from '../assets/error.png';
+// Global stores
 import { useLoggedUserStore } from '../store/useLoggedUserStore';
 
 export const NotesList = () => {
