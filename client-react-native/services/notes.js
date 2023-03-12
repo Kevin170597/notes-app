@@ -4,7 +4,7 @@ export const getNotes = async (userid) => {
     const req = await fetch(`${API}/notes/user/${userid}`);
     const res = await req.json();
     //console.log(6, res);
-    return res;
+    return res.reverse();
 };
 
 export const getNote = async (id) => {
