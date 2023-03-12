@@ -1,5 +1,5 @@
 // Navigation
-import { createStackNavigator } from '@react-navigation/stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 // Screens Components
 import { NotesList } from '../screens/NotesList';
 import { ReadUpdateNote } from '../screens/ReadUpdateNote';
@@ -9,7 +9,7 @@ import { Register } from '../screens/Register';
 // Global stores
 import { useAuthStore } from '../store/useAuthStore';
 
-const Stack = createStackNavigator();
+const Stack = createNativeStackNavigator();
 
 export const Navigation = () => {
 
