@@ -27,7 +27,7 @@ export const login = async (req: Request, res: Response) => {
             path: '/',
             secure: true,
             httpOnly: true,
-            domain: 'https://notes-app-eta-ashy.vercel.app'
+            domain: '.notes-app-eta-ashy.vercel.app'
         }).status(200).send(response);
     } catch (error) {
         console.log(error);
