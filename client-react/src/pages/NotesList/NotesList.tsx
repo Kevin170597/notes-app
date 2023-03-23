@@ -29,7 +29,7 @@ export const NotesList = () => {
         try {
             setLoading(true);
             const res = await getNotes(_id);
-            setNotes(res);
+            setNotes(res.reverse());
         } catch (error) {
             setError(true);
         } finally {
