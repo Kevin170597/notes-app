@@ -2,7 +2,7 @@ import { Note } from "../models";
 const API = 'https://notes-app-production-fa30.up.railway.app';
 
 export const getNotes = async (userid: string) => {
-    const req = await fetch(`${API}/notes/user/${userid}`);
+    const req = await fetch(`${API}/notes/user/${userid}`, { method: 'GET', credentials: 'include'});
     const res = await req.json();
     //console.log(res);
     return res;

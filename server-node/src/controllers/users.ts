@@ -23,7 +23,7 @@ export const login = async (req: Request, res: Response) => {
     try {
         const response = await logUser(req.body);
         if (!response) throw 'user or password wrong';
-        res.cookie('token', response, {
+        res.cookie('token', response.token, {
             path: '/',
             secure: true,
             httpOnly: true
