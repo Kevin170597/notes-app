@@ -26,7 +26,8 @@ export const login = async (req: Request, res: Response) => {
         res.cookie('token', response.token, {
             path: '/',
             secure: true,
-            httpOnly: true
+            httpOnly: true,
+            domain: 'https://notes-app-eta-ashy.vercel.app'
         }).status(200).send(response);
     } catch (error) {
         console.log(error);
