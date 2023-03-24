@@ -19,6 +19,9 @@
 .noteCard p {
     color: #414141;
     margin: 5px 0;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
 }
 
 @media (max-width: 600px) {

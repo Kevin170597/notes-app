@@ -1,4 +1,4 @@
-const API = 'https://notes-app-icv6-kevin170597.vercel.app';
+const API = process.env.REACT_APP_API;
 
 export const login = async (email: string, password: string) => {
     const user = await fetch(`${API}/users/login`,
