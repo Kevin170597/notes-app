@@ -1,5 +1,5 @@
 import { Note } from "../models";
-const API = 'https://notes-app-icv6-kteb5latj-kevin170597.vercel.app/';
+const API = 'https://notes-app-icv6-kteb5latj-kevin170597.vercel.app';
 
 export const getNotes = async (userid: string) => {
     const req = await fetch(`${API}/notes/user/${userid}`, { method: 'GET', credentials: 'include'});
