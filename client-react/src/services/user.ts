@@ -1,10 +1,9 @@
-const API = 'https://notes-app-icv6-kteb5latj-kevin170597.vercel.app';
+const API = 'https://notes-app-icv6-kevin170597.vercel.app/';
 
 export const login = async (email: string, password: string) => {
     const user = await fetch(`${API}/users/login`,
         {
             method: 'POST',
-            credentials: 'include',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ email, password })
         });
