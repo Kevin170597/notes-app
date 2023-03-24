@@ -8,7 +8,7 @@ import path from 'path';
 
 const PORT = process.env.PORT || 3001;
 const app = express();
-app.use(cors({ credentials: true, origin: process.env.CORS_ORIGINS?.split(',') || '' }));
+app.use(cors({ credentials: true, origin: '*'}));
 app.use(express.json());
 app.use(cookieParser());
 app.use(router);
