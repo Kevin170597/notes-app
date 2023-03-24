@@ -1,6 +1,6 @@
 import { Note } from "../models";
 import { useAuthStore } from "../store/useAuthStore";
-const API = 'https://notes-app-icv6-kevin170597.vercel.app';
+const API = process.env.REACT_APP_API;
 
 export const getNotes = async (userid: string) => {
     const req = await fetch(`${API}/notes/user/${userid}`, {
